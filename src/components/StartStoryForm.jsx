@@ -10,6 +10,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 async function query(text) {
 
+    if (text !== '') {
     const response = await fetch(
         "https://api-inference.huggingface.co/models/DeepESP/gpt2-spanish",
         {
@@ -19,6 +20,7 @@ async function query(text) {
         }
     );
     return await response.json();
+    }
 
 }
 
