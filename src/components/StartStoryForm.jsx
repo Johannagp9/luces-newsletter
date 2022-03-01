@@ -9,12 +9,12 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 
 async function query(text) {
-
+    console.log("calling api")
     if (text !== '') {
     const response = await fetch(
         "https://api-inference.huggingface.co/models/DeepESP/gpt2-spanish",
         {
-            headers: {Authorization: "Bearer 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"},
+            headers: {Authorization: "Bearer api_org_hf_yiVGGwZtFUbxRmjNJvWkKuCpJlFnMvbCQX"},
             method: "POST",
             body: JSON.stringify(text),
         }
