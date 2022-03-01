@@ -14,7 +14,7 @@ async function query(text) {
     const response = await fetch(
         "https://api-inference.huggingface.co/models/DeepESP/gpt2-spanish",
         {
-            headers: {Authorization: "Bearer api_org_hf_yiVGGwZtFUbxRmjNJvWkKuCpJlFnMvbCQX"},
+            headers: {Authorization: "Bearer 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"},
             method: "POST",
             body: JSON.stringify(text),
         }
