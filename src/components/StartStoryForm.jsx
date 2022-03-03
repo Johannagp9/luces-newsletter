@@ -37,13 +37,10 @@ export const StartStoryForm = (props) => {
     const get_story = () => {
 
         setLoading(true);
-        console.log(loading);
         const text = startStoryRef.current.value;
         setError(false);
-        console.log(text);
-        console.log(loading);
 
-        if (text !== '' && loading) {
+        if (text !== '') {
 
            query({"text": text, "max_length":250},loading).then((response) => {
                props.setText(text);
@@ -52,12 +49,13 @@ export const StartStoryForm = (props) => {
                setLoading(false);
                navigate('/subscribe');
             });
-
+           
+            text = "";
         }
         else {
-            setLoading(false);
             setError(true);
         }
+        setLoading(false);
     }
 
 
