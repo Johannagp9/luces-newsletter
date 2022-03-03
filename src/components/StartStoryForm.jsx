@@ -8,8 +8,8 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 
 
-async function query(text, loading) {
-    if (text !== '' && loading) {
+async function query(text) {
+    if (text !== '') {
     const response = await fetch(
         "https://ewzpxm0hq4.execute-api.eu-west-1.amazonaws.com/staging/storytell",
         {
@@ -42,7 +42,7 @@ export const StartStoryForm = (props) => {
 
         if (text !== '') {
 
-           query({"text": text, "max_length":250},loading).then((response) => {
+           query({"text": text, "max_length":250}).then((response) => {
                props.setText(text);
                console.log(response);
                let story = response[0].generated_text;
