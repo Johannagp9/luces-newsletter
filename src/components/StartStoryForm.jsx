@@ -40,6 +40,8 @@ export const StartStoryForm = (props) => {
 
         const text = startStoryRef.current.value;
         setError(false);
+        console.log(text);
+        console.log(loading);
 
         if (text !== '' && loading) {
 
