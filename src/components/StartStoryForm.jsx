@@ -9,17 +9,16 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 
 async function query(text) {
-    console.log("calling api")
-    if (text !== '') {
+    if (text !== '' && loading) {
     const response = await fetch(
-        "https://api-inference.huggingface.co/models/DeepESP/gpt2-spanish",
+        "https://ewzpxm0hq4.execute-api.eu-west-1.amazonaws.com/staging/storytell",
         {
-            headers: {Authorization: "Bearer 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"},
             method: "POST",
             body: JSON.stringify(text),
         }
     );
-    return await response.json();
+    const result = await response.json();
+    return result;
     }
 
 }
@@ -42,9 +41,9 @@ export const StartStoryForm = (props) => {
         const text = startStoryRef.current.value;
         setError(false);
 
-        if (text !== '') {
+        if (text !== '' && loading) {
 
-           query({"inputs": text, "parameters":{"max_new_tokens":250}}).then((response) => {
+           query({"text": text, "max_length":250}).then((response) => {
                props.setText(text);
                let story = response[0].generated_text;
                props.setStory(story);
