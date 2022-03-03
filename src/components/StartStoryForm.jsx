@@ -36,8 +36,7 @@ export const StartStoryForm = (props) => {
 
     const get_story = () => {
 
-        setLoading(true)
-
+        setLoading(true);
         const text = startStoryRef.current.value;
         setError(false);
         console.log(text);
