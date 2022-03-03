@@ -53,8 +53,9 @@ export const StartStoryForm = (props) => {
         }
         else {
             setError(true);
+            setLoading(false);
         }
-        setLoading(false);
+        
     }
 
 
