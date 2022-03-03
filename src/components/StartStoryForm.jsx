@@ -44,8 +44,7 @@ export const StartStoryForm = (props) => {
 
            query({"text": text, "max_length":250}).then((response) => {
                props.setText(text);
-               console.log(response);
-               let story = response[0].generated_text;
+               let story = response.body.generated_text;
                props.setStory(story);
                setLoading(false);
                navigate('/subscribe');
